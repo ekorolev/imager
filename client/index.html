@@ -35,13 +35,12 @@
 				Choose picture on your computer, type text for the caption and press button "Let's go!"
 			</p>
 			<div>
-				<form>
+				<form action='/addcaption' method='post' enctype='multipart/form-data'>
 					<div>
-						<input type='file'>
+						<input type='file' name='image'>
 					</div>
 					<div>
-						<textarea>
-						</textarea>
+						<textarea name='text'></textarea>
 					</div>
 					<div>
 						<input type='submit' value="Let's go!">

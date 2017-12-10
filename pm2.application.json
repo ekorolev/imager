@@ -1,0 +1,7 @@
+{
+	"apps": [{
+		"name": "imagerServer",
+		"script": "server/app.js",
+		"watch": [ "server" ]
+	}]
+}
