@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/ekorolev/imager#readme",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "gm": "^1.23.0"
   }
 }
