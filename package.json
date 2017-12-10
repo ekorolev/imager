@@ -1,0 +1,22 @@
+{
+  "name": "imager",
+  "version": "1.0.0",
+  "description": "Service for convert images.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ekorolev/imager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ekorolev/imager/issues"
+  },
+  "homepage": "https://github.com/ekorolev/imager#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
