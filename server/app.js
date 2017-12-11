@@ -14,7 +14,7 @@ const CONFIG_TEXT_COLOR = '#000000'
 const app = express()
 
 // Configure server application
-app.use( bodyParser.json() )
+app.use( bodyParser() )
 app.use( fileUpload() )
 app.use( ( req, res, next ) => { req.reqId = getID(); log(`#${req.reqId}: request`); next(); })
 app.use( express.static( CONFIG_STATIC_FILES ) )
@@ -30,6 +30,7 @@ app.get('/status', ( req, res ) => {
 app.post('/createtext', (req, res) => {
 	let text = req.body.text
 
+	log(text)
 	if ( typeof text !== 'string' ) {
 		return res.send({ error: 'text error' })
 	} else if ( text.length === 0 ) {
