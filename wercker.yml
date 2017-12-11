@@ -11,6 +11,9 @@ build:
         name: npm-install
         code:
           NODE_ENV=development npm install
+    - script:
+        name: create userfiles directory
+        code: mkdir userfiles/
     # A step that executes `npm test` command
     - npm-test
 
