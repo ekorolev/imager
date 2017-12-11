@@ -127,7 +127,7 @@ app.post('/addcaption', (req, res) => {
 		rows.map( (row, index) => {
 			image = image.drawText( 
 				imageLeftPadding + textAreaHorizontalPadding, 
-				(imageHeight - textAreaHeight) + textAreaVerticalPadding + fontSize * index, 
+				(imageHeight - textAreaHeight - 200) + textAreaVerticalPadding + fontSize * index, 
 				row 
 			)
 		})
