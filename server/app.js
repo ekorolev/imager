@@ -32,9 +32,9 @@ app.post('/createtext', (req, res) => {
 
 	log(text)
 	if ( typeof text !== 'string' ) {
-		return res.send({ error: 'text error' })
+		return res.status(500).send({ error: 'text error' })
 	} else if ( text.length === 0 ) {
-		return res.send({ error: 'Empty text error' })
+		return res.status(500).send({ error: 'Empty text error' })
 	}
 
 	let filepath = path.join( __dirname, '../userfiles', `${req.reqId}.jpg`)

@@ -3,53 +3,93 @@
 <head>
 	<title>Imager</title>
 
+	<link rel='stylesheet' type='text/css' href='/style/bootstrap.min.css'>
 	<link rel='stylesheet' type='text/css' href='/style/main.css'>
 </head>
 <body>
-	<div>
-		<div>
-			<h1>Imager</h1>
-			<p>
-				Hello! On this page you can convert text to image or add a caption to the picture. You are welcome!
-			</p>
-		</div>
-
-		<div>
-			<h2>Text to Image</h2>
-			<p>
-				Type text to the box below and press the submit button.
-			</p>
-			<div>
-				<form action='/createtext' method='post'>
-					<div>
-						<textarea name='text'></textarea>
-					</div>
-					<div>
-						<input type='submit' value='Send text'>
-					</div>
-				</form>
+	<div class='container'>
+		<div class='row'>
+			<div class='col-md-12'>
+				<div class='jumbotron'>
+					<h1>Imager</h1>
+					<p>
+						Hello! On this page you can convert text to image or add a caption to the picture. You are welcome!
+					</p>
+				</div>
 			</div>
 		</div>
-
-		<div>
-			<h2>Add caption</h2>
-			<p>
-				Choose picture on your computer, type text for the caption and press button "Let's go!"
-			</p>
-			<div>
-				<form action='/addcaption' method='post' enctype='multipart/form-data'>
-					<div>
-						<input type='file' name='image'>
+		<div class='row'>
+			<div class='col-md-6'>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<h4>Text to Image</h4>
 					</div>
-					<div>
-						<textarea name='text'></textarea>
+					<div class='panel-body'>
+						<form id='CreateTextForm' action='/createtext' method='post'>
+							<div>
+								<label for='CreateTextInput'>
+									Type the text
+								</label>
+								<textarea id='CreateTextInput' name='text' class='form-control'></textarea>
+							</div>
+							<div>
+								<label for='SubmitCreateText'>
+									Try to generate image!
+								</label>
+								<input id='SubmitCreateText' type='submit' value='Send text' class='form-control'>
+							</div>
+						</form>
 					</div>
-					<div>
-						<input type='submit' value="Let's go!">
+					<div class='panel-footer'>
+						<span id='CreateTextSuccess'></span>
 					</div>
-				</form>
+				</div>
+			</div>
+			<div class='col-md-6'>
+				<div class='panel panel-default'>
+					<div class='panel-heading'>
+						<h4>Add caption</h4>
+					</div>
+					<div class='panel-body'>
+						<form id='AddCaptionForm' action='/addcaption' method='post' enctype='multipart/form-data'>
+							<div>
+								<label for='AddCaptionFile'>
+									Choose an image on your computer
+								</label>
+								<input id='AddCaptionFile' type='file' name='image' class='form-control'>
+							</div>
+							<div>
+								<label for='AddCaptionArea'>
+									Type the caption text
+								</label>
+								<textarea id='AddCaptionArea' name='text' class='form-control'></textarea>
+							</div>
+							<div>
+								<label for='AddCaptionSubmit'>
+									Try to add caption!
+								</label>
+								<input id='AddCaptionSubmit' type='submit' value="Let's go!" class='form-control'>
+							</div>
+						</form>
+					</div>
+					<div class='panel-footer'>
+						<span id='AddCaptionSuccess'></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class='row'>
+			<div class='col-md-12'>
+				<div class='panel pandel-default'>
+					<div class='panel-footer'>
+						<a href='https://vk.com/eakorolev' target='_blank'>Korolev Evgeni
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
+
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/main.js"></script>
 </body>
 </html>
