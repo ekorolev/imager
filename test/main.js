@@ -1,0 +1,46 @@
+const chai = require('chai')
+const chaiHttp = require('chai-http')
+const should = chai.should()
+const server = require('../server/app')
+
+chai.use(chaiHttp)
+
+// Тестируем функцию преобразования текста в изображение
+describe('Server', () => {
+	it('Server status should be "work"', (done) => {
+		chai.request(server.app)
+		.get('/status')
+		.end((err, res) => {
+			res.should.have.status(200)
+			res.body.should.be.a('object')
+			res.body.should.have.property('status').eql('work')
+			done()
+		})
+	})
+})
+describe('/createtext', () => {
+	it('Empty text', (done) => {
+		chai.request(server.app)
+		.post('/createtext')
+		.send({ text: '' })
+		.end((err, res) => {
+			res.should.have.status(200)
+			res.body.should.be.a('object')
+			res.body.should.have.property('error').eql('Empty text error')
+			done()
+		})
+	})
+})
+
+describe('/appcaption', () => {
+	it('Empty text', done => {
+		chai.request(server.app)
+		.post('/addcaption')
+		.send({ text: '' })
+		.end((err, res) => {
+			res.should.have.status(200)
+			res.body.should.be.a('object')
+			res.body.should.have.property('error').eql('Empty text error')
+		})
+	})
+})

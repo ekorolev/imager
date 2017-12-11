@@ -4,7 +4,8 @@
   "description": "Service for convert images.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "NODE_ENV=dev PORT=7070 node index",
+    "test": "NODE_ENV=test PORT=7071 mocha --timeout 10000 --exit"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,10 @@
     "express": "^4.16.2",
     "express-fileupload": "^0.3.0",
     "gm": "^1.23.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "mocha": "^4.0.1"
   }
 }
