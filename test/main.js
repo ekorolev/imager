@@ -37,6 +37,7 @@ describe('/createtext', () => {
 		.send({ text: 'test text' })
 		.end((err, res) => {
 			res.should.have.status(200)
+			done()
 		})
 	})
 })
