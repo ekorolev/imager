@@ -75,7 +75,7 @@ app.post('/addcaption', (req, res) => {
 	let filepath = path.join( __dirname, '../userfiles', `${req.reqId}.jpg`)
 
 	if ( !req.files ) {
-		return res.json({ error: 'Empty image error '})
+		return res.json({ error: 'Empty image error'})
 	}
 
 	let userImage = req.files.image

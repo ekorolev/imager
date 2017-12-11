@@ -2,6 +2,7 @@ const chai = require('chai')
 const chaiHttp = require('chai-http')
 const should = chai.should()
 const server = require('../server/app')
+const fs = require('fs')
 
 chai.use(chaiHttp)
 
@@ -33,14 +34,15 @@ describe('/createtext', () => {
 })
 
 describe('/appcaption', () => {
-	it('Empty text', done => {
+	it('Request without image', done => {
 		chai.request(server.app)
 		.post('/addcaption')
-		.send({ text: '' })
+		.send({ text: 'Test text' })
 		.end((err, res) => {
 			res.should.have.status(200)
 			res.body.should.be.a('object')
-			res.body.should.have.property('error').eql('Empty text error')
+			res.body.should.have.property('error').eql('Empty image error')
+			done()
 		})
 	})
 })
