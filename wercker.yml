@@ -14,8 +14,6 @@ build:
     - script:
         name: create userfiles directory
         code: mkdir userfiles/
-    - install-packages:
-        packages: graphicsmagick imagemagick
     # A step that executes `npm test` command
     - npm-test
 
