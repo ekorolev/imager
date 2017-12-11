@@ -35,7 +35,7 @@ deploy:
       password: $DOCKER_PASSWORD
       repository: aksyline/imager
       ports: "7070"
-      cmd: /bin/bash -c "cd /pipelines/source/ && supervisor - watch ./index.js"
+      cmd: /bin/bash -c "cd /pipeline/source && supervisor - watch ./index.js"
     - add-ssh-key:
       keyname: VSCALE_SSH
     - add-to-known_hosts:
