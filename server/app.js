@@ -76,17 +76,17 @@ app.post('/addcaption', (req, res) => {
 	let filepath = path.join( __dirname, '../userfiles', `${req.reqId}.jpg`)
 
 	if ( !req.files ) {
-		return res.json({ error: 'Empty image error'})
+		return res.status(500).json({ error: 'Empty image error'})
 	}
 
 	let userImage = req.files.image
 
 	if ( !userImage ) {
-		return res.json({ error: 'Empty image error' })
-	} else if ( typeof text !== string ) {
-		return res.json({ error: 'text error' })
+		return res.status(500).json({ error: 'Empty image error' })
+	} else if ( typeof text !== 'string' ) {
+		return res.status(500).json({ error: 'text error' })
 	} else if ( !text.length ) {
-		return res.json({ error: 'Empty text error' })
+		return res.status(500).json({ error: 'Empty text error' })
 	}
 
 	let textAreaVerticalPadding = 15

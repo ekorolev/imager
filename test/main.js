@@ -48,9 +48,19 @@ describe('/appcaption', () => {
 		.post('/addcaption')
 		.send({ text: 'Test text' })
 		.end((err, res) => {
-			res.should.have.status(200)
+			res.should.have.status(500)
 			res.body.should.be.a('object')
 			res.body.should.have.property('error').eql('Empty image error')
+			done()
+		})
+	})
+	it('Valid request', done => {
+		chai.request(server.app)
+		.post('/addcaption')
+		.field('text', 'test text')
+		.attach('image', fs.readFileSync(__dirname+'/testImage.jpg'), 'image.jpg')
+		.end((err, res) => {
+			res.should.have.status(200)
 			done()
 		})
 	})
