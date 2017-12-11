@@ -33,25 +33,25 @@ deploy:
       repository: aksyline/imager
       ports: "7070"
       cmd: /bin/bash -c "cd /pipelines/source/ && supervisor - watch ./index.js"
-      - add-ssh-key:
-        keyname: VSCALE_SSH
-      - add-to-known_hosts:
-        hostname: 82.202.236.206
-      - script:
-          name: pull latest image
-          code: ssh root@82.202.236.206 docker pull aksyline/imager:latest
-      - script:
-          name: stop running container
-          code: ssh root@82.202.236.206 docker stop imager || echo ‘failed to stop running container’
-      - script:
-          name: remove stopped container
-          code: ssh root@82.202.236.206 docker rm imager || echo ‘failed to remove stopped container’
-      - script:
-          name: remove image behind stopped container
-          code: ssh root@82.202.236.206 docker rmi aksyline/imager:current || echo ‘failed to remove image behind stopped container’
-      - script:
-          name: tag newly pulled image
-          code: ssh root@82.202.236.206 docker tag aksyline/imager:latest aksyline/imager:current
-      - script:
-          name: run new container
-          code: ssh root@82.202.236.206 docker run -d -p 80:7070 --name imager aksyline/imager:current
+    - add-ssh-key:
+      keyname: VSCALE_SSH
+    - add-to-known_hosts:
+      hostname: 82.202.236.206
+    - script:
+        name: pull latest image
+        code: ssh root@82.202.236.206 docker pull aksyline/imager:latest
+    - script:
+        name: stop running container
+        code: ssh root@82.202.236.206 docker stop imager || echo ‘failed to stop running container’
+    - script:
+        name: remove stopped container
+        code: ssh root@82.202.236.206 docker rm imager || echo ‘failed to remove stopped container’
+    - script:
+        name: remove image behind stopped container
+        code: ssh root@82.202.236.206 docker rmi aksyline/imager:current || echo ‘failed to remove image behind stopped container’
+    - script:
+        name: tag newly pulled image
+        code: ssh root@82.202.236.206 docker tag aksyline/imager:latest aksyline/imager:current
+    - script:
+        name: run new container
+        code: ssh root@82.202.236.206 docker run -d -p 80:7070 --name imager aksyline/imager:current
