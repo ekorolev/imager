@@ -25,7 +25,7 @@ describe('/createtext', () => {
 		.post('/createtext')
 		.send({ text: '' })
 		.end((err, res) => {
-			res.should.have.status(200)
+			res.should.have.status(500)
 			res.body.should.be.a('object')
 			res.body.should.have.property('error').eql('Empty text error')
 			done()
