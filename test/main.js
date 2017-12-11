@@ -31,6 +31,14 @@ describe('/createtext', () => {
 			done()
 		})
 	})
+	it('send valid text', done => {
+		chai.request(server.app)
+		.post('/createtext')
+		.send({ text: 'test text' })
+		.end((err, res) => {
+			res.should.have.status(200)
+		})
+	})
 })
 
 describe('/appcaption', () => {
