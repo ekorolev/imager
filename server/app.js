@@ -143,6 +143,16 @@ app.post('/addcaption', (req, res) => {
 	})
 })
 
+app.get('/image', (req, res) => {
+	let id = req.query.id;
+
+	let isExists = fs.existsSync(path.join(__dirname, '../userfiles/', `${id}.jpg`))
+	if (!isExists)
+		res.status(404).json({ error: 'file not found' })
+
+	res.sendFile(path.join(__dirname, '../userfiles/', `${id}.jpg`))
+})
+
 module.exports = function () {
 	app.listen(CONFIG_PORT, () => {
 		log(`Server started at port ${CONFIG_PORT}`)
