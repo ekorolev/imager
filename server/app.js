@@ -164,8 +164,8 @@ function getID () {
 }
 
 // Logging
-function log (arg) {
+function log () {
 	if ( process.env.NODE_ENV !== 'test' ) {
-		console.log(arg)
+		console.log.apply(null, arguments)
 	}
 }
