@@ -67,7 +67,10 @@ app.post('/createtext', (req, res) => {
 			return;
 		}
 
-		res.sendFile(filepath)
+		res.json({
+			url: `/image?id=${req.reqId}`
+		})
+		//res.sendFile(filepath)
 	})
 })
 
@@ -138,7 +141,10 @@ app.post('/addcaption', (req, res) => {
 				return;
 			}
 
-			res.sendFile(filepath)
+			res.json({
+				url: `/image?id=${req.reqId}`
+			})
+			//res.sendFile(filepath)
 		})
 	})
 })
