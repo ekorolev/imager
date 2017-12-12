@@ -8,8 +8,8 @@ const fileUpload	= require('express-fileupload')
 const CONFIG_PORT = process.env.PORT || 7070
 const CONFIG_STATIC_FILES = path.join( __dirname, '../client' )
 const CONFIG_FONT_FILE = path.join( __dirname, 'font.ttf' )
-const CONFIG_TEXT_BG = '#000000'
-const CONFIG_TEXT_COLOR = '#ffffff'
+const CONFIG_TEXT_BG = '#ffffff'
+const CONFIG_TEXT_COLOR = '#000000'
 
 const app = express()
 
